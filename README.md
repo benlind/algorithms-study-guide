@@ -96,6 +96,24 @@ An adjacency list has one array per vertex. Each vertex's array stores the verti
 **Space requirement:** 2|E|
 
 
+### Algorithms
+
+#### Breadth-First Search
+
+BFS stores two values for each vertex in the graph. The first value is the distance of that vertex from the source. The second value is the vertex's predecessor—the vertex that comes before it in the shortest path to the source.
+
+Shortest path algorithm:
+
+1. Start at the source vertex and set its distance to 0.
+2. Look at that vertex's neighbors and assign them distances of 1 with predecessors of the source vertex.
+3. Look at all neighbors of the vertices with distance 1 _that have not yet been seen_. Assign them a distance of 2 and set their predecessors appropriately.
+4. Repeat until all vertices reachable from the source have been seen.
+
+Use a queue to keep track of which vertices have been visited but not yet visited _from_. When you first see a vertex, add it to the queue. To decide which vertex to use next as a "from" vertex, simply dequeue the next vertex. That will be the vertex that has been in the queue the longest.
+
+**Performance:** O(V + E) (each vertex is visited only once, and each edge is visited at most twice, once for each of its connected vertices)
+
+
 
 Useful Resources
 ================================================================================
