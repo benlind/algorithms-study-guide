@@ -23,6 +23,20 @@ f(x) = Θ(g(x)) (theta) means that the growth rate of f(x) is asymptotically **e
 A greedy algorithm is one that "follows the problem solving heuristic of making the locally optimal choice at each stage with the hope of finding a global optimum" ([source](https://en.wikipedia.org/wiki/Greedy_algorithm)). Basically, it is an algorithm that chooses what appears to be the best option at each individual step. This may or may not end up being the best option from the larger perspective, but it often saves time.
 
 
+### Orders of Growth
+
+In order from slowest to fastest growing:
+
+- O(1): constant
+- O(log<sub>2</sub> n): logarithmic
+- O(n): linear
+- O(n log<sub>2</sub> n): linearithmic
+- O(n<sup>2</sup>): polynomial (quadratic)
+- O(n<sup>3</sup>): polynomial (cubic)
+- O(2<sup>n</sup>): exponential
+- O(n!): factorial
+
+
 
 Algorithms
 ================================================================================
@@ -119,6 +133,29 @@ Shortest path algorithm:
 Use a queue to keep track of which vertices have been visited but not yet visited _from_. When you first see a vertex, add it to the queue. To decide which vertex to use next as a "from" vertex, simply dequeue the next vertex. That will be the vertex that has been in the queue the longest.
 
 **Performance:** O(V + E) (each vertex is visited only once, and each edge is visited at most twice, once for each of its connected vertices)
+
+
+
+Miscellaneous Algorithms
+--------------------------------------------------------------------------------
+
+### Hash Table Collision Resolution
+
+- Bucketing
+   - Store the hash table in a 2D array instead of 1D. Store collisions in the second dimension.
+   - Cons: this wastes a lot of space, and it does not work if you get more collision than one row can handle.
+- Chaining
+   - Store a linked list at each array index. Add collisions to the end of the target array's list.
+   - Cons: this takes extra space for the linked list pointers.
+- Linear probing
+   - Insertion: if the target index is full, look at the next array index. Continue cycling through the indices until you find an empty index, and store the element there.
+   - Searching: start with the index given by the hash function. If the element is not there, cycle through its following indices until you find the correct element, reach an empty index, or wrap around to the initial index again.
+   - Removal: search for the value and remove it from the array. If there are elements after it in its cluster, loop through them, deleting each one and re-adding them to the hash table using the normal method.
+   - _Note: a **cluster** is a contiguous series of full indices in a hash table._
+- Double hashing
+   - When searching for a new index after a collision, use a second hash function to calculate the index instead of probing linearly.
+   - Example: start with _hash1(key)_. If that is full, move to _hash1(key) + hash2(key)_. Then try _hash1(key) + 2*hash2(key)_, then _hash1(key) + 3*hash2(key)_, etc.
+   - Rules: the second hashing function can never return zero, and it must generate indices such that every index in the table is eventually tried.
 
 
 
