@@ -1,7 +1,9 @@
 # Algorithms Study Guide
 
-O, Θ, and Ω Notation
+Terminology
 ================================================================================
+
+### O, Θ, and Ω Notation
 
 f(x) = O(g(x)) (big-oh) means that the growth rate of f(x) is asymptotically **less than _or equal to_** to the growth rate of g(x).
 
@@ -14,6 +16,11 @@ f(x) = ω(g(x)) (small-omega) means that the growth rate of f(x) is asymptotical
 f(x) = Θ(g(x)) (theta) means that the growth rate of f(x) is asymptotically **equal to** the growth rate of g(x)
 
 [Source](http://stackoverflow.com/a/471206)
+
+
+### Greediness
+
+A greedy algorithm is one that "follows the problem solving heuristic of making the locally optimal choice at each stage with the hope of finding a global optimum" ([source](https://en.wikipedia.org/wiki/Greedy_algorithm)). Basically, it is an algorithm that chooses what appears to be the best option at each individual step. This may or may not end up being the best option from the larger perspective, but it often saves time.
 
 
 
