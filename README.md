@@ -44,6 +44,18 @@ Algorithms
 Sorting
 --------------------------------------------------------------------------------
 
+### Bubble Sort
+
+**Steps:**
+
+1. Loop through the array n-1 times.
+2. Compare each index to the one next to it. If the first index is larger than the second, swap them.
+3. This will essentially move the largest index to the end of the array at each iteration, creating a sorted sub-array at the end of the main array. So, when iterating again, you only need to iterate up to that sub-array.
+
+**Runtime:** O(n<sup>2</sup>)
+
+[Visualization](http://cathyatseneca.github.io/DSAnim/web/bubble.html)
+
 ### Merge Sort
 
 Merge sort uses the divide-and-conquer method on an unsorted array.
@@ -163,3 +175,4 @@ Useful Resources
 ================================================================================
 
 - [Oregon State University Undergraduate Algorithms Study Guide](https://web.engr.oregonstate.edu/~glencora/wiki/index.php?n=Main.UndergraduateAlgorithmsStudyGuide)
+- [Visualizations for sorting, linked lists, stacks, and queues](http://cathyatseneca.github.io/DSAnim/)
